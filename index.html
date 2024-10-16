@@ -58,7 +58,7 @@
 </head>
 <body>
 
-<div class="form-container" id="login-container">
+<!-- <div class="form-container" id="login-container">
     <div class="form-title">Login to Access</div>
     <form id="login-form">
         <div class="mb-3">
@@ -67,9 +67,9 @@
         </div>
         <button type="submit" class="btn btn-primary w-100">Login</button>
     </form>
-</div>
+</div> -->
 
-<div class="form-container" id="qr-container" style="display: none;">
+<div class="form-container" id="qr-container">
     <div class="form-title">QR Code to Link Converter</div>
     <form id="qr-form">
         <div class="mb-3">
@@ -95,41 +95,41 @@
     const validStartTime = "00:00";
     const validEndTime = "23:59";
 
-    function isWithinValidTime() {
-        const now = new Date();
-        const currentTime = now.toTimeString().slice(0, 5);
-        return currentTime >= validStartTime && currentTime <= validEndTime;
-    }
+    // function isWithinValidTime() {
+    //     const now = new Date();
+    //     const currentTime = now.toTimeString().slice(0, 5);
+    //     return currentTime >= validStartTime && currentTime <= validEndTime;
+    // }
 
-    function showLogin() {
-        document.getElementById("login-container").style.display = "block";
-    }
+    // function showLogin() {
+    //     document.getElementById("login-container").style.display = "block";
+    // }
 
     function showQrConverter() {
         document.getElementById("qr-container").style.display = "block";
-        document.getElementById("login-container").style.display = "none";
+        // document.getElementById("login-container").style.display = "none";
     }
 
-    document.getElementById("login-form").onsubmit = function(event) {
-        event.preventDefault(); // Prevent default form submission
-        const passwordInput = document.getElementById("password").value;
+    // document.getElementById("login-form").onsubmit = function(event) {
+    //     event.preventDefault(); // Prevent default form submission
+    //     const passwordInput = document.getElementById("password").value;
 
-        if (passwordInput === validPassword && isWithinValidTime()) {
-            localStorage.setItem("isLoggedIn", "true"); // Store login status
-            showQrConverter();
-        } else {
-            alert("Invalid password or out of allowed time!");
-        }
-    };
+    //     if (passwordInput === validPassword && isWithinValidTime()) {
+    //         localStorage.setItem("isLoggedIn", "true"); // Store login status
+    //         showQrConverter();
+    //     } else {
+    //         alert("Invalid password or out of allowed time!");
+    //     }
+    // };
 
-    function checkLogin() {
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
-        if (isLoggedIn === "true" && isWithinValidTime()) {
-            showQrConverter();
-        } else {
-            showLogin();
-        }
-    }
+    // function checkLogin() {
+    //     const isLoggedIn = localStorage.getItem("isLoggedIn");
+    //     if (isLoggedIn === "true" && isWithinValidTime()) {
+    //         showQrConverter();
+    //     } else {
+    //         showLogin();
+    //     }
+    // }
 
     function decodeQRCode() {
         const fileInput = document.getElementById('fileInput');
@@ -202,7 +202,7 @@
     }
 
     // Check login status when the page loads
-    window.onload = checkLogin;
+    // window.onload = checkLogin;
 </script>
 
 </body>
